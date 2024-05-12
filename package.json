@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mailgun-js": "^0.6.7",
+    "nodemailer": "^6.9.13",
+    "nodemailer-mailgun-transport": "^2.1.5",
+    "nodemon": "^3.1.0",
+    "noenv": "^1.2.0"
+  }
+}
