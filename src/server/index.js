@@ -29,10 +29,10 @@ app.post("/subscribe", async (req, res) => {
   });
 
   const mailOptions = {
-    from: process.env.EMAIL_USER, // sender address
-    to: "admin@grupocober.online ", // list of receivers
-    subject: "Nuevo suscriptor", // Subject line
-    text: JSON.stringify(subscriberData, null, 2), // plain text body
+    from: process.env.EMAIL_USER, // dirección del remitente
+    to: "admin@grupocober.online ", // lista de receptores
+    subject: "Nuevo suscriptor", // Asunto
+    text: JSON.stringify(subscriberData, null, 2), // cuerpo de texto sin formato
   };
   try {
     await transporter.sendMail(mailOptions);
