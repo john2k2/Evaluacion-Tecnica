@@ -15,11 +15,9 @@ app.use(bodyParser.json());
 // Sirve archivos estáticos desde el directorio "public"
 app.use(express.static(path.join(__dirname, "../../public")));
 
-let lastSubscriberEmail = null;
-
 app.post("/subscribe", async (req, res) => {
   const subscriberData = req.body;
-  lastSubscriberEmail = "johnmarket36@gmail.com";
+
   const transporter = nodemailer.createTransport({
     host: "smtp.gmail.com",
     port: 465,
@@ -32,7 +30,7 @@ app.post("/subscribe", async (req, res) => {
 
   const mailOptions = {
     from: process.env.EMAIL_USER, // sender address
-    to: email, // list of receivers
+    to: "admin@grupocober.online ", // list of receivers
     subject: "Nuevo suscriptor", // Subject line
     text: JSON.stringify(subscriberData, null, 2), // plain text body
   };
@@ -47,7 +45,7 @@ app.post("/subscribe", async (req, res) => {
 
 app.get("/success", (req, res) => {
   res.send(`
-  <h1>'Correo enviado a ${lastSubscriberEmail}'</h1>
+    <h1>Correo enviado</h1>
     <p>Serás redirigido en unos segundos...</p>
     <script>
       setTimeout(function(){
