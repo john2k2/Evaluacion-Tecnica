@@ -657,7 +657,7 @@ input[name="toggle"] {
 .ui-section-close {
   background-color: var(--ui-color-background-secondary);
   padding-bottom: 5rem;
-  padding-top: 5rem;
+  padding-top: 4.99rem;
   text-align: center;
   text-transform: capitalize;
 }
