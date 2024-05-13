@@ -38,13 +38,25 @@ app.post("/subscribe", async (req, res) => {
   };
   try {
     await transporter.sendMail(mailOptions);
-    res.status(200).send("Correo enviado");
+    res.redirect("/success"); // Redirige a la página de éxito
   } catch (error) {
     console.error(error);
     res.status(500).send(`Error al enviar el correo: ${error.message}`);
   }
 });
 
+app.get("/success", (req, res) => {
+  res.send(`
+    <h1>Correo enviado</h1>
+    <p>Serás redirigido en unos segundos...</p>
+    <script>
+      setTimeout(function(){
+        window.location.href = '/';
+      }, 3000);
+    </script>
+  `);
+});
+
 app.listen(port, () => {
-  console.log(`Servidor corriendo en el puerto ${port}`);
+  console.log(`Servidor corriendo en http://localhost:${port}`);
 });
