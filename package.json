@@ -8,5 +8,8 @@
     "nodemailer-mailgun-transport": "^2.1.5",
     "nodemon": "^3.1.0",
     "noenv": "^1.2.0"
+  },
+  "scripts": {
+    "start": "nodemon src/server/index.js"
   }
 }

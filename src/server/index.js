@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const nodemailer = require("nodemailer");
+const path = require("path");
 
 require("dotenv").config({ path: "../../.env" });
 
@@ -12,6 +13,9 @@ const port = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(bodyParser.json());
+
+// Sirve archivos estáticos desde el directorio "public"
+app.use(express.static(path.join(__dirname, "../index.html")));
 
 app.post("/subscribe", async (req, res) => {
   const subscriberData = req.body;
