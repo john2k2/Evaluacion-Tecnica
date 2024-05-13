@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Sirve archivos estáticos desde el directorio "public"
-app.use(express.static(path.join(__dirname, "../index.html")));
+app.use(express.static(path.join(__dirname, "../../public")));
 
 app.post("/subscribe", async (req, res) => {
   const subscriberData = req.body;
